@@ -1,19 +1,38 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\PostController;
+use Illuminate\Support\Facades\Route;
+
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/posts', [PostController::class, 'index']);
-
 Route::get('/posts/{id}', [PostController::class, 'show']);
+Route::get('/posts/{postId}/comments', [CommentController::class, 'index']);
 
-Route::post('/posts', [PostController::class, 'store']);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::post('/posts', [PostController::class, 'store']);
+    Route::post('/posts/{id}/like', [PostController::class, 'like']);
+    Route::delete('/posts/{id}', [PostController::class, 'destroy']);
+    Route::post('/posts/{postId}/comments', [CommentController::class, 'store']);
+});
 
-Route::delete('/posts/{id}', [PostController::class, 'destroy']);
+Route::prefix('v1')->group(function () {
+    Route::post('/register', [AuthController::class, 'register']);
+    Route::post('/login', [AuthController::class, 'login']);
 
-Route::post('/posts/{id}/like', [PostController::class, 'like']);
+    Route::get('/posts', [PostController::class, 'index']);
+    Route::get('/posts/{id}', [PostController::class, 'show']);
+    Route::get('/posts/{postId}/comments', [CommentController::class, 'index']);
 
-Route::get('/posts/{id}/comments', [CommentController::class, 'index']);
-
-Route::post('/posts/{id}/comments', [CommentController::class, 'store']);
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::post('/logout', [AuthController::class, 'logout']);
+        Route::post('/posts', [PostController::class, 'store']);
+        Route::post('/posts/{id}/like', [PostController::class, 'like']);
+        Route::delete('/posts/{id}', [PostController::class, 'destroy']);
+        Route::post('/posts/{postId}/comments', [CommentController::class, 'store']);
+    });
+});

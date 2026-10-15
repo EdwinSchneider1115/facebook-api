@@ -1,0 +1,259 @@
+name: Comentarios
+description: ''
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/posts/{postId}/comments'
+    metadata:
+      custom: []
+      groupName: Comentarios
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Listar comentarios de una publicación'
+      description: 'Devuelve los comentarios de la publicación indicada.'
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      postId:
+        custom: []
+        name: postId
+        description: 'Identificador de la publicación.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      postId: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '[{"id":1,"post_id":1,"author":"Ana Prueba","content":"Qué buena publicación"}]'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 404
+        content: '{"message":"No query results for model [App\\Models\\Post] 999"}'
+        headers: []
+        description: ''
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'api/posts/{postId}/comments'
+    metadata:
+      custom: []
+      groupName: Comentarios
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Agregar comentario a una publicación'
+      description: 'Crea un comentario asociado al usuario autenticado y a la publicación indicada.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      postId:
+        custom: []
+        name: postId
+        description: 'Identificador de la publicación.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      postId: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      content:
+        custom: []
+        name: content
+        description: 'Texto del comentario.'
+        required: true
+        example: 'Qué buena publicación'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      content: 'Qué buena publicación'
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: '{"id":1,"post_id":1,"author":"Ana Prueba","content":"Qué buena publicación"}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 422
+        content: '{"message":"The content field is required."}'
+        headers: []
+        description: ''
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/v1/posts/{postId}/comments'
+    metadata:
+      custom: []
+      groupName: Comentarios
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Listar comentarios de una publicación'
+      description: 'Devuelve los comentarios de la publicación indicada.'
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      postId:
+        custom: []
+        name: postId
+        description: 'Identificador de la publicación.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      postId: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '[{"id":1,"post_id":1,"author":"Ana Prueba","content":"Qué buena publicación"}]'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 404
+        content: '{"message":"No query results for model [App\\Models\\Post] 999"}'
+        headers: []
+        description: ''
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'api/v1/posts/{postId}/comments'
+    metadata:
+      custom: []
+      groupName: Comentarios
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Agregar comentario a una publicación'
+      description: 'Crea un comentario asociado al usuario autenticado y a la publicación indicada.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      postId:
+        custom: []
+        name: postId
+        description: 'Identificador de la publicación.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      postId: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      content:
+        custom: []
+        name: content
+        description: 'Texto del comentario.'
+        required: true
+        example: 'Qué buena publicación'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      content: 'Qué buena publicación'
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: '{"id":1,"post_id":1,"author":"Ana Prueba","content":"Qué buena publicación"}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 422
+        content: '{"message":"The content field is required."}'
+        headers: []
+        description: ''
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
