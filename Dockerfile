@@ -29,7 +29,7 @@ WORKDIR /var/www
 COPY . /var/www
 
 # Instalar dependencias de producción de Composer
-RUN composer install --no-dev --optimize-autoloader --no-interaction
+RUN composer install --optimize-autoloader --no-interaction
 
 # Asignar permisos correctos a las carpetas de almacenamiento y caché
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
